@@ -73,8 +73,8 @@ class AutoSplitPost extends PluginBootstrap {
 		$this->option_menu_location = 'add_menu_page';
 		$this->option_menu_position = 100;
 		$this->option_capability    = 'activate_plugins';
-		$this->option_icon_big      = $this->plugin_url.'/assets/images/menu-icon-big.png';
-		$this->option_icon_small    = $this->plugin_url.'/assets/images/menu-icon-small.png';
+		$this->option_icon_big      = $this->plugin_url.'assets/images/menu-icon-big.png';
+		$this->option_icon_small    = $this->plugin_url.'assets/images/menu-icon-small.png';
 
 		$fields	= Array(
 					Array(
@@ -250,8 +250,7 @@ class AutoSplitPost extends PluginBootstrap {
 	function auto_split_post_style_header(){
 		if($this->option('remove_default_pagination',$this->plugin_slug.'_option') == 'yes') {
 			echo '<style type="text/css">
-				.single .page-link,
-				.page .page-link{
+				.page-link{
 					display:none;
 				}
 			</style>';
