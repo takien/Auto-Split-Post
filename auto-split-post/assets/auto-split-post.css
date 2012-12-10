@@ -1,0 +1,12 @@
+.auto-split-post {
+	margin:10px 0;
+}
+.auto-split-post ul,
+.auto-split-post li,
+.auto-split-post p.auto-split-post-heading {
+	margin:0 !important;
+	padding:0 !important
+}
+.auto-split-post li {
+	list-style-position:inside
+}
