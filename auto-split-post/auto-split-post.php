@@ -24,7 +24,7 @@ class AutoSplitPost extends PluginBootstrap {
 		'split_at'                 => 'h2',
 		'style'                    => 'linklist',
 		'position'                 => 'aftercontent',
-		'heading_text'			   => 'Pages: ',
+		'heading_text'             => 'Pages: ',
 		'item_template'            => '%Page% %n% - %title%',
 		'remove_default_pagination'=>'yes'
 	);
@@ -37,7 +37,7 @@ class AutoSplitPost extends PluginBootstrap {
 			$this->plugin_init();
 			
 		}
-		$this->plugin_options(); /* plugin-options.php must be included */
+		$this->plugin_options(); 
 	}
 	
 	function plugin_init() {
@@ -72,56 +72,56 @@ class AutoSplitPost extends PluginBootstrap {
 		$this->option_menu_slug     = $this->plugin_slug;
 		$this->option_menu_location = 'add_menu_page';
 		$this->option_menu_position = 100;
-		$this->option_capability	= 'activate_plugins';
+		$this->option_capability    = 'activate_plugins';
 		$this->option_icon_big      = $this->plugin_url.'/assets/images/menu-icon-big.png';
 		$this->option_icon_small    = $this->plugin_url.'/assets/images/menu-icon-small.png';
 
 		$fields	= Array(
 					Array(
-						'name'			=> 'autosplit',
-						'label'			=> __('Auto Split'),
-						'type'			=> 'select',
-						'description'	=> __('Set auto split yes or no'),
-						'value'			=> $this->option('autosplit'),
-						'values'		=> Array(
-							'yes' => __('Yes'),
-							'no'  => __('No')
+						'name'         => 'autosplit',
+						'label'        => __('Auto Split'),
+						'type'         => 'select',
+						'description'  => __('Set auto split yes or no'),
+						'value'        => $this->option('autosplit'),
+						'values'       => Array(
+							'yes'      => __('Yes'),
+							'no'       => __('No')
 							)
 					),
 					Array(
-						'name'			=> 'split_at',
-						'label'			=> __('Split at tag'),
-						'type'			=> 'select',
-						'description'	=> __('Select HTML tag you want to split at'),
-						'value'			=> $this->option('split_at'),
-						'values'		=> Array(
+						'name'          => 'split_at',
+						'label'         => __('Split at tag'),
+						'type'          => 'select',
+						'description'   => __('Select HTML tag you want to split at'),
+						'value'         => $this->option('split_at'),
+						'values'        => Array(
 							'h2'=> __('h2'),
 							'h3'=> __('h3')
 							)
 					),
 					Array(
-						'name'			=> 'style',
-						'label'			=> __('Style'),
-						'type'			=> 'select',
-						'description'	=> __('Pagination style'),
-						'value'			=> $this->option('style'),
-						'values'		=> Array(
+						'name'          => 'style',
+						'label'         => __('Style'),
+						'type'          => 'select',
+						'description'   => __('Pagination style'),
+						'value'         => $this->option('style'),
+						'values'        => Array(
 							'dropdown'=> __('Dropdown'),
 							'linklist'=> __('Link list'),
 							'tab'     => __('Tab')
 							)
 					),
 					Array(
-						'name'			=> 'position',
-						'label'			=> __('Position'),
-						'type'			=> 'select',
-						'description'	=> __('Select pagination position'),
-						'value'			=> $this->option('position'),
-						'values'		=> Array(
+						'name'         => 'position',
+						'label'        => __('Position'),
+						'type'         => 'select',
+						'description'  => __('Select pagination position'),
+						'value'        => $this->option('position'),
+						'values'       => Array(
 							'beforecontent' => __('Before content'),
 							'aftercontent' => __('After content'),
-							'both'		   => __('Both'),
-							'manual'	   => __('I will place it manually')
+							'both'     => __('Both'),
+							'manual'   => __('I will place it manually')
 						)
 					),
 					Array(
@@ -141,14 +141,14 @@ class AutoSplitPost extends PluginBootstrap {
 						
 					),
 					Array(
-						'name'			=> 'remove_default_pagination',
-						'label'			=> __('Hide default pagination'),
-						'type'			=> 'select',
-						'description'	=> __('Some theme has it\'s own pagination for splitted post, eg: <code>twentyeleven</code> and <code>twentyten</code> theme. <br/> If you choose yes, it will be hidden by CSS (not actually removed). To manually remove, you should delete <code>wp_link_pages()</code> on your single theme (usually, after <code>the_content()</code>)'),
-						'value'			=> $this->option('remove_default_pagination'),
-						'values'		=> Array(
-							'yes' => __('Yes'),
-							'no'  => __('No')
+						'name'         => 'remove_default_pagination',
+						'label'        => __('Hide default pagination'),
+						'type'         => 'select',
+						'description'  => __('Some theme has it\'s own pagination for splitted post, eg: <code>twentyeleven</code> and <code>twentyten</code> theme. <br/> If you choose yes, it will be hidden by CSS (not actually removed). To manually remove, you should delete <code>wp_link_pages()</code> on your single theme (usually, after <code>the_content()</code>)'),
+						'value'        => $this->option('remove_default_pagination'),
+						'values'       => Array(
+							'yes'      => __('Yes'),
+							'no'       =>__('No')
 							)
 					),
 					//wp_link_pages
