@@ -189,10 +189,11 @@ class AutoSplitPost extends PluginBootstrap {
 		//echo $this->option('style',$this->plugin_slug.'_option');
 		if($this->option('style',$this->plugin_slug.'_option') == 'dropdown'){
 			
-			$before      = '<div class="auto-split-post"><p class="auto-split-post-heading">'.$this->option('heading_text',$this->plugin_slug.'_option'). '</p><select class="auto-split-post-dropdown">';
-			$after       = '</select ></div>';
+			$before      = '<div class="auto-split-post"><p class="auto-split-post-heading">'.$this->option('heading_text',$this->plugin_slug.'_option'). '</p><form action=""><select class="auto-split-post-dropdown" onchange="window.location.href = this.options[this.selectedIndex].value">';
+			$after       = '</select></form></div>';
 			$link_before = '<option>';
 			$link_after  = '</option>';
+
 		}
 		$arg = Array(
 			'echo'       => '',
@@ -203,10 +204,17 @@ class AutoSplitPost extends PluginBootstrap {
 			'pagelink'   => '__%__'
 		);
 		$link = wp_link_pages($arg);
+
 		
-		/* if dropdown, remove anchor*/
+		/* if dropdown, remove anchor, replace with <option value=""></option>*/
 		if($this->option('style',$this->plugin_slug.'_option') == 'dropdown'){
-			$link = strip_tags($link,'<p><div><span><select><option>');
+			
+			$link = str_replace('<a href','<option value',$link);
+			$link = str_replace('</a>','</option>',$link);
+			$link = str_replace('</option></option>','</option>',$link);
+			$link = str_replace('"><option>','">',$link);
+			$link = str_replace('<option>','<option value="">',$link);
+			
 		}
 		
 		if($this->option('autosplit') == 'yes') {
@@ -215,6 +223,7 @@ class AutoSplitPost extends PluginBootstrap {
 		else {
 			$return = $link;
 		}
+		
 		echo $return;
 	}
 	
